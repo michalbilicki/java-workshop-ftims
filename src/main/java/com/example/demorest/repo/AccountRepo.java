@@ -16,12 +16,33 @@ public class AccountRepo {
 
     public AccountRepo() {
         accounts = new ConcurrentHashMap<>();
-        Account account1 = new UserAccount("accountU", "some@body.U", "hashmeU", "", "1234567890");
-        Account account2 = new AdminAccount("accountA", "some@body.A", "hashmeA", "", "0123456789");
-
         try {
-            addAccount(account1);
-            addAccount(account2);
+            addAccount(new UserAccount("BasiaUser", "basia.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser", "michal.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser", "test.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser", "ola.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser", "szymon.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+
+            addAccount(new UserAccount("BasiaUser2", "basia.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser2", "michal.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser2", "test.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser2", "ola.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser2", "szymon.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+
+            addAccount(new UserAccount("BasiaUser3", "basia.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser3", "michal.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser3", "test.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser3", "ola.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser3", "szymon.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+
+            addAccount(new AdminAccount("BasiaAdmin", "basia.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("MichalAdmin", "michal.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("TestAdmin", "test.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("OlaAdmin", "ola.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("SzymonAdmin", "szymon.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+
+            addAccount(new AdminAccount("BarbaraBorkowska", "barbara.borkowska@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("MichalBilicki", "michal.bilicki@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
         } catch (LoginAlreadyExistsException e) {
             System.out.println("I tak to jest do usuniecia");
         }
@@ -46,7 +67,6 @@ public class AccountRepo {
     }
 
     public synchronized Account findByToken(String token) throws AccountNotFoundException {
-        System.out.println(token + accounts);
         return accounts.values().stream().filter(a -> a.getToken().equals(token)).findAny().orElseThrow(AccountNotFoundException::new);
     }
 

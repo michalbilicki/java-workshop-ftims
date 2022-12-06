@@ -26,8 +26,24 @@ public class AccountResource {
             Account existingAccount = checkPassword(credentials);
             String token = "Token-" + existingAccount.getLogin();
             existingAccount.setToken(token);
+            Thread.sleep(2000);
             return existingAccount;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
+            throw new NotFoundException();
+        }
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/log_out")
+    public Account logOut(@HeaderParam("Authorization") String authorization) {
+        try {
+            Account existingAccount = getAuthenticatedAccount(authorization);
+            existingAccount.setToken("");
+            Thread.sleep(2000);
+            return existingAccount;
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
@@ -37,10 +53,11 @@ public class AccountResource {
     public List<Account> getAllAccounts(@HeaderParam("Authorization") String authorization) {
         try {
             getAdminAccount(authorization);
+            Thread.sleep(2000);
             return accountRepo.getAllAccounts();
         } catch (ForbiddenException ex) {
             throw ex;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
@@ -52,8 +69,9 @@ public class AccountResource {
             @HeaderParam("Authorization") String authorization
     ) {
         try {
+            Thread.sleep(2000);
             return getAuthenticatedAccount(authorization);
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
@@ -68,10 +86,11 @@ public class AccountResource {
         try {
             getAdminAccount(authorization);
             accountRepo.addAccount(account);
+            Thread.sleep(2000);
             return account;
         } catch (ForbiddenException ex) {
             throw ex;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         } catch (LoginAlreadyExistsException e) {
             throw new WebApplicationException(Response.Status.CONFLICT);
@@ -91,10 +110,11 @@ public class AccountResource {
             getAdminAccount(authorization);
             Account existingAccount = accountRepo.findByLogin(login);
             existingAccount.setEmail(account.getEmail());
+            Thread.sleep(2000);
             return existingAccount;
         } catch (ForbiddenException ex) {
             throw ex;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
@@ -113,10 +133,11 @@ public class AccountResource {
             }
 
             getAdminAccount(authorization);
+            Thread.sleep(2000);
             return accountRepo.findByLogin(login);
         } catch (ForbiddenException ex) {
             throw ex;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
@@ -130,9 +151,10 @@ public class AccountResource {
         try {
             getAdminAccount(authorization);
             accountRepo.removeByLogin(login);
+            Thread.sleep(2000);
         } catch (ForbiddenException ex) {
             throw ex;
-        } catch (AccountNotFoundException ex) {
+        } catch (AccountNotFoundException | InterruptedException ex) {
             throw new NotFoundException();
         }
     }
