@@ -17,32 +17,32 @@ public class AccountRepo {
     public AccountRepo() {
         accounts = new ConcurrentHashMap<>();
         try {
-            addAccount(new UserAccount("BasiaUser", "basia.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("MichalUser", "michal.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("TestUser", "test.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("OlaUser", "ola.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("SzymonUser", "szymon.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("BasiaUser", "Basia", "User", "basia.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser", "Michal", "User", "michal.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser", "Test", "User", "test.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser", "Ola", "User", "ola.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser", "Szymon", "User", "szymon.user@gmail.com", "P@ssw0rd!", "", "1234567890"));
 
-            addAccount(new UserAccount("BasiaUser2", "basia.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("MichalUser2", "michal.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("TestUser2", "test.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("OlaUser2", "ola.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("SzymonUser2", "szymon.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("BasiaUser2", "Basia", "User", "basia.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser2", "Michal", "User", "michal.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser2", "Test", "User", "test.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser2", "Ola", "User", "ola.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser2", "Szymon", "User", "szymon.user2@gmail.com", "P@ssw0rd!", "", "1234567890"));
 
-            addAccount(new UserAccount("BasiaUser3", "basia.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("MichalUser3", "michal.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("TestUser3", "test.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("OlaUser3", "ola.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
-            addAccount(new UserAccount("SzymonUser3", "szymon.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("BasiaUser3", "Basia", "User", "basia.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("MichalUser3", "Michal", "User", "michal.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("TestUser3", "Test", "User", "test.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("OlaUser3", "Ola", "User", "ola.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
+            addAccount(new UserAccount("SzymonUser3", "Szymon", "User", "szymon.user3@gmail.com", "P@ssw0rd!", "", "1234567890"));
 
-            addAccount(new AdminAccount("BasiaAdmin", "basia.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
-            addAccount(new AdminAccount("MichalAdmin", "michal.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
-            addAccount(new AdminAccount("TestAdmin", "test.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
-            addAccount(new AdminAccount("OlaAdmin", "ola.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
-            addAccount(new AdminAccount("SzymonAdmin", "szymon.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("BasiaAdmin", "Basia", "Admin", "basia.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("MichalAdmin", "Michal", "Admin", "michal.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("TestAdmin", "Test", "Admin", "test.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("OlaAdmin", "Ola", "Admin", "ola.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("SzymonAdmin", "Szymon", "Admin", "szymon.admin@admin.com", "P@ssw0rd!", "", "0123456789"));
 
-            addAccount(new AdminAccount("BarbaraBorkowska", "barbara.borkowska@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
-            addAccount(new AdminAccount("MichalBilicki", "michal.bilicki@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("BarbaraBorkowska", "Barbara", "Borkowska", "barbara.borkowska@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
+            addAccount(new AdminAccount("MichalBilicki", "Michal", "Bilicki", "michal.bilicki@htdevelopers.com", "P@ssw0rd!", "", "0123456789"));
         } catch (LoginAlreadyExistsException e) {
             System.out.println("I tak to jest do usuniecia");
         }

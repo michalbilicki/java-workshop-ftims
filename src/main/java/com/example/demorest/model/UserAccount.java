@@ -17,8 +17,9 @@ public class UserAccount extends Account {
         this.NIP = NIP;
     }
 
-    public UserAccount(String login, String email, String password, String token, String NIP) {
-        super(login, email, password, token);
+    public UserAccount(String login, String firstName, String lastName, String email, String password, String token, String NIP) {
+        super(login, firstName, lastName, email, password, token
+        );
         this.NIP = NIP;
     }
 

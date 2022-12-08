@@ -109,6 +109,8 @@ public class AccountResource {
         try {
             getAdminAccount(authorization);
             Account existingAccount = accountRepo.findByLogin(login);
+            existingAccount.setFirstName(account.getFirstName());
+            existingAccount.setLastName(account.getLastName());
             existingAccount.setEmail(account.getEmail());
             Thread.sleep(2000);
             return existingAccount;

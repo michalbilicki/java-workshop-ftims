@@ -17,8 +17,8 @@ public class AdminAccount extends Account {
         this.phone = phone;
     }
 
-    public AdminAccount(String login, String email, String password, String token, String phone) {
-        super(login, email, password, token);
+    public AdminAccount(String login, String firstName, String lastName, String email, String password, String token, String phone) {
+        super(login, firstName, lastName, email, password, token);
         this.phone = phone;
     }
 
