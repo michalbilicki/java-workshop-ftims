@@ -4,6 +4,10 @@ public class AdminAccount extends Account {
 
     private String phone;
 
+    public AdminAccount() {
+        super();
+    }
+
     @Override
     public String getAccountType() {
         return "ADMIN";

@@ -79,8 +79,31 @@ public class AccountResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account addAccount(
-            @Valid Account account,
+    @Path("/create_admin")
+    public AdminAccount addAdminAccount(
+            @Valid AdminAccount account,
+            @HeaderParam("Authorization") String authorization
+    ) {
+        try {
+            getAdminAccount(authorization);
+            accountRepo.addAccount(account);
+            Thread.sleep(2000);
+            return account;
+        } catch (ForbiddenException ex) {
+            throw ex;
+        } catch (AccountNotFoundException | InterruptedException ex) {
+            throw new NotFoundException();
+        } catch (LoginAlreadyExistsException e) {
+            throw new WebApplicationException(Response.Status.CONFLICT);
+        }
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/create_user")
+    public UserAccount addAccount(
+            @Valid UserAccount account,
             @HeaderParam("Authorization") String authorization
     ) {
         try {
@@ -108,6 +131,7 @@ public class AccountResource {
     ) {
         try {
             getAdminAccount(authorization);
+            System.out.println(account.toString());
             Account existingAccount = accountRepo.findByLogin(login);
             existingAccount.setFirstName(account.getFirstName());
             existingAccount.setLastName(account.getLastName());

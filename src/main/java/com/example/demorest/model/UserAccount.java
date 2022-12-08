@@ -4,6 +4,10 @@ public class UserAccount extends Account {
 
     private String NIP;
 
+    public UserAccount() {
+        super();
+    }
+
     @Override
     public String getAccountType() {
         return "USER";

@@ -36,6 +36,8 @@ public class Account {
         return "Account{"
                 + "id=" + id
                 + ", login='" + login + '\''
+                + ", firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
                 + ", email='" + email + '\''
                 + ", token='" + token + '\''
                 + '}';
